@@ -10,33 +10,17 @@ const usersSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    city: {
-        type: String,
-        required: true
-    },
-    address: {
-        type: String
-    },
     email: {
         type: String
     },
-    profilePic: {
+    factory: {
         type: String
     },
-    category: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'category'
+    empId: {
+        type: String
     },
-    accountType: {
-        type: String,
-        enum: ['Beginner', 'Intermediate', 'Professional'],
-        default: 'Beginner'
-    },
-    coords:
-    {
-        type: { type: String },
-        coordinates: []
-
+    address: {
+        type: String
     },
     createdAt: {
         type: Date,
