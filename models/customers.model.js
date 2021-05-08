@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
 
-const usersSchema = new mongoose.Schema({
+const customersSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     },
     phone: {
         type: Number,
-        required: true,
-        unique: true
+        required: true
     },
     email: {
         type: String
@@ -19,7 +18,7 @@ const usersSchema = new mongoose.Schema({
     empId: {
         type: String
     },
-    address: {
+    location: {
         type: String
     },
     createdAt: {
@@ -35,5 +34,5 @@ const usersSchema = new mongoose.Schema({
     }
 });
 
-const USERS = mongoose.model('users', usersSchema);
-module.exports = USERS;
+const CUSTOMERS = mongoose.model('customers', customersSchema);
+module.exports = CUSTOMERS;

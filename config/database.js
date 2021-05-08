@@ -4,8 +4,7 @@ mongoose.connect(process.env.DBURL, {
     useFindAndModify: false,
     useUnifiedTopology: true,
 }).then(() => {
-    console.log('\x1b[35m', `Database Connected : ${process.env.DBURL}`
-    )
+    console.log('\x1b[36m%s\x1b[0m', `Database Connected : ${process.env.DBURL}`)
 }).catch(err => {
-    console.error('\x1b[41m','Database Connection Error', err)
+    console.error('\x1b[33m%s\x1b[0m', 'Database Connection Error', err)
 })
