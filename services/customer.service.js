@@ -1,9 +1,9 @@
 const { CUSTOMERS_MODEL } = require('../models');
-const escapeStringRegexp = require('escape-string-regexp');
 
 const create = async ({ body }) => {
     try {
         const reqData = body;
+        console.log('reqData ', reqData)
         const user = await CUSTOMERS_MODEL.findOne({ name: reqData.name });
         if (!user) {
             const data = await CUSTOMERS_MODEL.create(reqData);

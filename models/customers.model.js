@@ -16,7 +16,8 @@ const customersSchema = new mongoose.Schema({
         type: String
     },
     empId: {
-        type: String
+        type: Number,
+        unique: true
     },
     location: {
         type: String
