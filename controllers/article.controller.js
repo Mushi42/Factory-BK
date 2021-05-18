@@ -31,6 +31,15 @@ const findOne = async (req, res) => {
     }
 };
 
+const findSingle = async (req, res) => {
+    try {
+        const data = await articleService.findSingle(req);
+        setResponse(res, data);
+    } catch (error) {
+        setResponse(res, { type: "serverError" });
+    }
+};
+
 const update = async (req, res) => {
     try {
         const data = await articleService.update(req);
@@ -55,4 +64,5 @@ module.exports = {
     findOne,
     update,
     purge,
+    findSingle
 };

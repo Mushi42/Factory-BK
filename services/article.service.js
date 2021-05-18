@@ -17,10 +17,23 @@ const create = async ({ body }) => {
     }
 };
 
-const findOne = async ({ body }) => {
+const findOne = async ({ body, params }) => {
     try {
-        const query = body
-        console.log(query)
+        const query = { userRef: params.userId }
+        console.log('Body Query...', query)
+        const data = await ARTICLES_MODEL.find(query)
+        if (data.length) return { type: 'success', message: `Found`, data }
+        else return { type: 'bad', message: `Article not exist!` }
+    } catch (error) {
+        throw error;
+    }
+};
+
+
+const findSingle = async ({ params }) => {
+    try {
+        const query = { _id: params.userId }
+        console.log('Body Query...', query)
         const data = await ARTICLES_MODEL.findOne(query)
         if (data) return { type: 'success', message: `Found`, data }
         else return { type: 'bad', message: `Article not exist!` }
@@ -70,5 +83,6 @@ module.exports = {
     findOne,
     findAll,
     update,
-    purge
+    purge,
+    findSingle
 }
